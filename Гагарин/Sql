@@ -1,0 +1,31 @@
+-- Таблица для типов компаний
+CREATE TABLE TypeCompany (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+ 
+-- Таблица для партнеров
+CREATE TABLE Partners (
+    id SERIAL PRIMARY KEY,
+    company_name VARCHAR(100) NOT NULL,
+    type_partner INTEGER REFERENCES TypeCompany(id),
+    director_full_name VARCHAR(100),
+    phone VARCHAR(15),
+    rating FLOAT,
+    discount int
+);
+ 
+-- Таблица для продуктов
+CREATE TABLE Products (
+    id SERIAL PRIMARY KEY,
+    description VARCHAR(100) NOT NULL
+);
+ 
+-- Таблица для связи между партнерами и продуктами (история продаж)
+CREATE TABLE PartnerProduct (
+    id SERIAL PRIMARY KEY,
+    id_partener INTEGER REFERENCES Partners(id),
+    id_product INTEGER REFERENCES Products(id),
+    quantity INTEGER NOT NULL,
+    date_of_sale DATE NOT NULL
+);
