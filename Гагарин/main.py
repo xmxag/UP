@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
         logo_label.setAlignment(Qt.AlignLeft)
         header_layout.addWidget(logo_label)
 
-        title = QLabel("Партнеры")
+        title = QLabel("Мастер Пол")
         title.setStyleSheet(f"font-size: {HEADER_FONT_SIZE}px; font-weight: bold; color: {FONT_COLOR};")
         title.setAlignment(Qt.AlignCenter)
         header_layout.addWidget(title)
